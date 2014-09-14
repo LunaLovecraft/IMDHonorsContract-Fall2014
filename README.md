@@ -9,11 +9,17 @@
 ===========================================================================
 
   Adam Kaufman        |  Lead Level Designer and Level Editor Programmer
+  
   Christopher Mercado |  Graphics Programmer and Level Designer
+  
   Joseph Lu           |  Lead Artist
+  
   Justin Bonczek      |  Lead Graphics Designer
+  
   Kelsey Weinman      |  Co-Lead Mechanics Programmer
+  
   Luna Meier          |  Project Manager and Co-Lead Mechanics Programmer
+  
   Sarah Bishop        |  Lead Mechanics and Gameplay Designer
   
 ===========================================================================
