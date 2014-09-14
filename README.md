@@ -3,7 +3,6 @@
   Description
 ===========================================================================
   Repository for the IMD Honors Contract Course Project of Fall 2014.
-
 ===========================================================================
   Students            |  Roles
 ===========================================================================
@@ -21,7 +20,6 @@
   Luna Meier          |  Project Manager and Co-Lead Mechanics Programmer
   
   Sarah Bishop        |  Lead Mechanics and Gameplay Designer
-  
 ===========================================================================
   Version History
 ===========================================================================
