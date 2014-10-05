@@ -1,0 +1,11 @@
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\obj\Debug\Assembly-CSharp.dll
+C:\Users\Luna\Programming Files\UnityProjects\RopeTest\obj\Debug\Assembly-CSharp.pdb
