@@ -35,11 +35,65 @@ public class WebGun : MonoBehaviour
     /// </summary>
     public Rigidbody2D webPoint;
 
+    // Rendering properties
+    /// <summary>
+    /// Starting point for the curve
+    /// </summary>
+    public Transform startPoint;
+
+    /// <summary>
+    /// Tangent to the starting point
+    /// </summary>
+    public Transform startTangent;
+
+    /// <summary>
+    /// Ending point for the curve
+    /// </summary>
+    public Transform endPoint;
+
+    /// <summary>
+    /// Tangent to the ending point
+    /// </summary>
+    public Transform endTangent;
+
+    /// <summary>
+    /// Color of the curve to be rendered
+    /// </summary>
+    public Color color;
+
+    /// <summary>
+    /// Width of the lines
+    /// </summary>
+    public float width;
+
+    /// <summary>
+    /// Total number of points (renders straight lines to look like a curve)
+    /// </summary>
+    public int numPoints;
+
+    /// <summary>
+    /// Number of nodes in the web
+    /// </summary>
+    public int numNodes;
+
     // Use this for initialization
     void Start()
     {
         // Start in a default state of 0
         fireState = 0;
+
+        // Start with no points to render
+        numNodes = 0;
+
+        LineRenderer lineRenderer = (LineRenderer)GetComponent("LineRenderer");
+
+        if (lineRenderer == null)
+        {
+            gameObject.AddComponent("LineRenderer");
+        }
+        lineRenderer = (LineRenderer)GetComponent("LineRenderer");
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
     }
 
     // Update is used to ensure accurate keypresses.
@@ -63,6 +117,7 @@ public class WebGun : MonoBehaviour
                     fireState = 1;
                     // Create a point since there isn't one yet.  This will be the first one fired.
                     prevNode = Instantiate(webPoint, this.transform.position, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
+                    numNodes++;
                     goto case 1;
                 }
                 break;
@@ -109,6 +164,33 @@ public class WebGun : MonoBehaviour
                 break;
         }
         #endregion
+
+        #region Rendering
+        LineRenderer lineRenderer = (LineRenderer)GetComponent("LineRenderer");
+        if(lineRenderer != null)
+        {
+            lineRenderer.SetVertexCount(numNodes);
+            lineRenderer.SetWidth(width, width);
+            lineRenderer.SetColors(color, color);
+        }
+
+        if(prevNode != null)
+        {
+            startPoint = prevNode.GetComponent<WebNode>().point;
+            lineRenderer.SetPosition(0, startPoint.position);
+
+            for (int i = 1; i < numNodes + 1; i++)
+            {
+                if (startPoint.GetComponent<WebNode>().nextNode != null)
+                {
+                    endPoint = startPoint.GetComponent<WebNode>().nextNode.point;
+                    lineRenderer.SetPosition(i, endPoint.position);
+
+                    startPoint = endPoint;
+                }
+            }
+        }
+        #endregion
     }
 
     // FixedUpdate is used for physics related tasks to maintain accuracy.
@@ -148,7 +230,7 @@ public class WebGun : MonoBehaviour
 
                     // Create a new node to interact with
                     currentNode = Instantiate(webPoint, this.transform.position, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
-
+                    numNodes++;
 
                     // Tell it the next node in the chain.
                     currentNode.GetComponent<WebNode>().nextNode = prevNode.GetComponent<WebNode>();
@@ -199,6 +281,7 @@ public class WebGun : MonoBehaviour
                     temp.GetComponent<SpringJoint2D>().enabled = false;
                     // Destroy it, and set PrevNode = to the temporary node.
                     Destroy(prevNode.gameObject);
+                    numNodes--;
                     prevNode = temp;
                     prevNode.rigidbody2D.isKinematic = true;
                     prevNode.rigidbody2D.GetComponent<WebNode>().prevNode = null;
@@ -212,6 +295,7 @@ public class WebGun : MonoBehaviour
                 currentNode = null;
                 prevNode = null;
                 fireState = 0;
+                numNodes = 0;
                 break;
         }
         #endregion
