@@ -7,7 +7,7 @@ public class SpikeScript : AbstractTriggerZone {
     /// When the player enters the spike zone "kill" them.
     /// </summary>
     /// <param name="other"></param>
-    public override void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject == GameObject.Find("Player"))
         {
@@ -16,11 +16,11 @@ public class SpikeScript : AbstractTriggerZone {
         }
     }
 
-    public override void OnTriggerStay(Collider other)
+    public override void OnTriggerStay2D(Collider2D other)
     {
     }
 
-    public override void OnTriggerExit(Collider other)
+    public override void OnTriggerExit2D(Collider2D other)
     {
     }
 }
