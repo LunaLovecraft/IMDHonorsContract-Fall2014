@@ -4,26 +4,26 @@ using System.Collections;
 public class movement : MonoBehaviour {
 
     //Variables
-    float maxSpeed;
+    Vector2 maxSpeed;
     float maxStrength;
     float maxJumpHeight;
 
 	// Use this for initialization
 	void Start () {
-        maxSpeed = 2;
+        maxSpeed = new Vector2(0.1f,0);
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * maxSpeed * Time.deltaTime;
+            transform.position = (rigidbody2D.position - maxSpeed);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * maxSpeed * Time.deltaTime;
+            transform.position = (rigidbody2D.position + maxSpeed);
         }
         //if (Input.GetKey(KeyCode.UpArrow))
         //{
