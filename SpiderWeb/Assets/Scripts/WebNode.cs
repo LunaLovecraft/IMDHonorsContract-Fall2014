@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 
 public class WebNode : MonoBehaviour {
@@ -48,7 +48,7 @@ public class WebNode : MonoBehaviour {
         point.rigidbody2D.isKinematic = false;
     }
 
-    // Using FixedUpdate to ensure physics things are accurate
+    // Using FixedUpdate to ensure physi    cs things are accurate
 	void FixedUpdate ()
     {
         if(firstNode)
@@ -84,4 +84,19 @@ public class WebNode : MonoBehaviour {
             this.GetComponent<SpringJoint2D>().enabled = false;
         }
 	}
+    void OnCollisionEnter2D(Collision2D info)
+    {
+        Debug.Log(info.collider.tag);
+        if (info.collider.tag == "Node")
+        {
+            Physics2D.IgnoreCollision(this.collider2D, info.collider.collider2D);
+            return;
+        }
+        else if (info.collider.gameObject == this)
+            return;
+        else
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
+   
+    }
+
 }

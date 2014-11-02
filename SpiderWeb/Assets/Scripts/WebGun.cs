@@ -117,6 +117,7 @@ public class WebGun : MonoBehaviour
                     fireState = 1;
                     // Create a point since there isn't one yet.  This will be the first one fired.
                     prevNode = Instantiate(webPoint, this.transform.position, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
+                    prevNode.tag = "Node";
                     numNodes++;
                     goto case 1;
                 }
@@ -230,6 +231,7 @@ public class WebGun : MonoBehaviour
 
                     // Create a new node to interact with
                     currentNode = Instantiate(webPoint, this.transform.position, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
+                    currentNode.tag = "Node";
                     numNodes++;
 
                     // Tell it the next node in the chain.
@@ -272,7 +274,7 @@ public class WebGun : MonoBehaviour
             // Holding Case
             case 2:
                 // If the next node is too close to the previous node while being held, then suck it in.
-                if (prevNode.GetComponent<WebNode>().nextNode != null && (prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.position - prevNode.position).magnitude < .4f)
+                if (prevNode.GetComponent<WebNode>().nextNode != null && (prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.position - prevNode.position).magnitude < 0.9f)
                 {
                     // Create a temporary node to allow access to the next rigidbody.
                     Rigidbody2D temp = prevNode.GetComponent<WebNode>().nextNode.rigidbody2D;
