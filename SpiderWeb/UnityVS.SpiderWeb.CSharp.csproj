@@ -48,6 +48,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CharacterVariable.cs" />
     <Compile Include="Assets\Scripts\PathHandler.cs" />
     <Compile Include="Assets\Scripts\Trampoline.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\AbstractTriggerZone.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Assets\Scripts\WebGun.cs" />
     <Compile Include="Assets\Scripts\WebNode.cs" />
     <Compile Include="Assets\Scripts\movement.cs" />
+    <Compile Include="Assets\Scripts\wallCollide.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
