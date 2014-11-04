@@ -3,7 +3,7 @@ using System.Collections;
 
 public class wallCollide : MonoBehaviour {
 
-    private float stability = 10;
+    public float stability = 10;
     private float force;
 
 	// Use this for initialization
