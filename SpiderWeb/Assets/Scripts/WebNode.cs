@@ -86,7 +86,7 @@ public class WebNode : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D info)
     {
-        Debug.Log(info.collider.tag);
+        //Debug.Log(info.collider.tag);
         if (info.collider.tag == "Node")
         {
             Physics2D.IgnoreCollision(this.collider2D, info.collider.collider2D);

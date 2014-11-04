@@ -160,7 +160,16 @@ public class WebGun : MonoBehaviour
 
                     // Scale the force arbitrarily and add it.
                     tensionForceDirection.Scale(new Vector2(50, 50));
-                    prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection);
+                    if (!Input.GetKey(KeyCode.LeftShift))
+                    {
+                        prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection / 2);
+                        this.transform.parent.rigidbody2D.AddForce(-tensionForceDirection / 2);
+                    }
+                    else
+                    {
+                        prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection);
+                    }
+
                 }
                 break;
         }
@@ -200,22 +209,22 @@ public class WebGun : MonoBehaviour
 
         // Debug movement controls.
         #region DebugMovement
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.position += new Vector3(0, 0.1f,0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.transform.position += new Vector3(0.1f, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.position += new Vector3(0, -0.1f, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.position += new Vector3(-0.1f, 0, 0);
-        }
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    this.transform.position += new Vector3(0, 0.1f,0);
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    this.transform.position += new Vector3(0.1f, 0, 0);
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    this.transform.position += new Vector3(0, -0.1f, 0);
+        //}
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    this.transform.position += new Vector3(-0.1f, 0, 0);
+        //}
         #endregion
 
         // Code handling the firing of web.
@@ -251,12 +260,15 @@ public class WebGun : MonoBehaviour
 
                     // Get the worldspace position of the mouse
                     Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    
                     Vector2 fireDirection = new Vector2(mousePoint.x - this.transform.position.x, mousePoint.y - this.transform.position.y);
 
                     // Fire it with arbitrary force.
                     fireDirection.Normalize();
-                    fireDirection.Scale(new Vector2(700,700));
-                    prevNode.rigidbody2D.AddForce(fireDirection);
+                    fireDirection.Scale(new Vector2(2200,2200));
+                    prevNode.rigidbody2D.AddForce(fireDirection );
+                    
+                    
 
                     // Move the nodes along the chain
                     prevNode = currentNode;
@@ -303,5 +315,18 @@ public class WebGun : MonoBehaviour
                 break;
         }
         #endregion
+
+        // Player node attacher management.
+        if (prevNode == null || prevNode.GetComponent<WebNode>().nextNode == null)
+        {
+            
+            this.GetComponentInParent<SpringJoint2D>().enabled = false;
+        }
+        else
+        {
+            this.GetComponentInParent<SpringJoint2D>().connectedBody = prevNode.GetComponent<WebNode>().nextNode.rigidbody2D;
+            this.GetComponentInParent<SpringJoint2D>().enabled = true;
+        }
+
     }
 }
