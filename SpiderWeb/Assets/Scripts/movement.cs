@@ -8,37 +8,45 @@ public class movement : MonoBehaviour {
     float maxStrength;
     float maxJumpHeight;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start () {
         maxSpeed = new Vector2(0.1f,0);
         this.GetComponent<SpringJoint2D>().enabled = false;
+		animator=this.GetComponent<Animator>();
 	
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position = (rigidbody2D.position - maxSpeed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position = (rigidbody2D.position + maxSpeed);
-        }
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    transform.position += Vector3.up * Time.deltaTime;
-        //}
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    transform.position += Vector3.down * Time.deltaTime;
-        //}
-
-        if (this.GetComponent<SpringJoint2D>().connectedBody != null && this.GetComponent<SpringJoint2D>().distance * 1 >= (this.rigidbody2D.position - this.GetComponent<SpringJoint2D>().connectedBody.position).magnitude)
-        {
-            this.GetComponent<SpringJoint2D>().enabled = false;
-        }
+		if (Input.GetKey(KeyCode.A))
+		{
+			//transform.position = (rigidbody2D.position - maxSpeed);
+			transform.eulerAngles = new Vector2(0, 180);
+			transform.Translate(Vector2.right * maxSpeed.x);
+		}
+		if (Input.GetKey(KeyCode.D))
+		{
+			//transform.position = (rigidbody2D.position + maxSpeed);
+			transform.eulerAngles = new Vector2(0, 0);
+			transform.Translate(Vector2.right * maxSpeed.x);
+		}
+		//if (Input.GetKey(KeyCode.UpArrow))
+		//{
+		//    transform.position += Vector3.up * Time.deltaTime;
+		//}
+		//if (Input.GetKey(KeyCode.DownArrow))
+		//{
+		//    transform.position += Vector3.down * Time.deltaTime;
+		//}
+		animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+		
+		if (this.GetComponent<SpringJoint2D>().connectedBody != null && this.GetComponent<SpringJoint2D>().distance * 1 >= (this.rigidbody2D.position - this.GetComponent<SpringJoint2D>().connectedBody.position).magnitude)
+		{
+			this.GetComponent<SpringJoint2D>().enabled = false;
+		}
 
 	}
 }
