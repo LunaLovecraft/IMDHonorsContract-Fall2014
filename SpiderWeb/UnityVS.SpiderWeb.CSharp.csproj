@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterVariable.cs" />
+    <Compile Include="Assets\Scripts\FluffScript.cs" />
     <Compile Include="Assets\Scripts\PathHandler.cs" />
     <Compile Include="Assets\Scripts\Trampoline.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\AbstractTriggerZone.cs" />
