@@ -145,7 +145,7 @@ public class WebGun : MonoBehaviour
 
             case 2:
                 // Same as case one right click
-                if (Input.GetMouseButtonUp(1))
+                if (Input.GetMouseButtonUp(1) || prevNode.GetComponent<WebNode>().nextNode == null)
                 {
                     prevNode.GetComponent<WebNode>().Activate();
                     prevNode.GetComponent<SpringJoint2D>().enabled = false;
@@ -163,11 +163,16 @@ public class WebGun : MonoBehaviour
                     if (!Input.GetKey(KeyCode.LeftShift))
                     {
                         prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection / 2);
+                        
+                        // Pulls player to it
                         this.transform.parent.rigidbody2D.AddForce(-tensionForceDirection / 2);
+
+                        // Pulls player along it.
+                        //prevNode.GetComponent<WebNode>().nextNode.GetComponent<SpringJoint2D>().distance -= 0.1f;
                     }
                     else
                     {
-                        prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection);
+                        prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.AddForce(tensionForceDirection / 2);
                     }
 
                 }

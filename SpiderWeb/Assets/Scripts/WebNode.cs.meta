@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: f03a21bc272fb514895d08680b6bed8a
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - nextNode: {instanceID: 0}
+  - prevNode: {instanceID: 0}
+  - point: {instanceID: 0}
+  - webPoint: {fileID: 5000000, guid: 66e5a894e19923348aabd380b5c411aa, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
