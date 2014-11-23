@@ -51,11 +51,11 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterVariable.cs" />
     <Compile Include="Assets\Scripts\FluffScript.cs" />
-    <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\PathHandler.cs" />
     <Compile Include="Assets\Scripts\Trampoline.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\AbstractTriggerZone.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\ExampleTriggerZoneScript.cs" />
+    <Compile Include="Assets\Scripts\TriggerZone Scripts\SeeThroughSprites.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\SpikeScript.cs" />
     <Compile Include="Assets\Scripts\TriggerZone Scripts\WindScript.cs" />
     <Compile Include="Assets\Scripts\WebGun.cs" />
