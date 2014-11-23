@@ -71,6 +71,7 @@ public class WebNode : MonoBehaviour {
                 Vector2 location = myData.point;
                 
                 currentNode = Instantiate(webPoint, location, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
+                FindObjectOfType<WebGun>().numNodes++;
                 Debug.Log(currentNode);
                 currentNode.GetComponent<WebNode>().nextNode = this.nextNode;
                 currentNode.GetComponent<WebNode>().prevNode = this;
