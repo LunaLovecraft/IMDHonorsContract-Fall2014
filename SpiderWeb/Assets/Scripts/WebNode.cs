@@ -66,7 +66,7 @@ public class WebNode : MonoBehaviour {
             // We'll use linecasting.
             RaycastHit2D myData = Physics2D.Linecast(this.transform.position, nextNode.transform.position, layerMask);
 
-            if (myData.collider != null && myData.distance > 0.01f)
+            if (myData.collider != null && !myData.collider.isTrigger && myData.distance > 0.01f && ((Vector2)nextNode.transform.position - myData.point).magnitude > 0.01f)
             {
                 Vector2 location = myData.point;
                 
@@ -146,5 +146,6 @@ public class WebNode : MonoBehaviour {
     {
         this.GetComponent<Rigidbody2D>().isKinematic = true;
     }
+
 
 }
