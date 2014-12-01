@@ -85,7 +85,11 @@ public class WebNode : MonoBehaviour {
                 this.GetComponent<SpringJoint2D>().distance *= (myData.fraction);
 
                 currentNode.GetComponent<WebNode>().Activate();
-                currentNode.GetComponent<WebNode>().Attach();
+
+                if (!myData.collider.CompareTag("Non-Stick"))
+                {
+                    currentNode.GetComponent<WebNode>().Attach();
+                }
             }
         }
     }
@@ -139,7 +143,11 @@ public class WebNode : MonoBehaviour {
         else if (info.collider.gameObject == this)
             return;
         else
+        {
+            if(!info.collider.CompareTag("Non-Stick")){
             Attach();
+            }
+        }
    
     }
 
