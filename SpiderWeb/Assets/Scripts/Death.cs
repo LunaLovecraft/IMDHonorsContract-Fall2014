@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Death : MonoBehaviour {
 
-	// Use this for initialization
-    public void Death(Transform empty)
+    public Transform empty;
+    public void Die()
     {
         transform.position = empty.position;
     }
