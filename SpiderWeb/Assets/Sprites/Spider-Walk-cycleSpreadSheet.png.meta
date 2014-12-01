@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: c90c48d09d98c01428523e0115891803
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Spider-Walk-cycleSpreadSheet_0
+    21300002: Spider-Walk-cycleSpreadSheet_1
+    21300004: Spider-Walk-cycleSpreadSheet_2
+    21300006: Spider-Walk-cycleSpreadSheet_3
+    21300008: Spider-Walk-cycleSpreadSheet_4
+    21300010: Spider-Walk-cycleSpreadSheet_5
+    21300012: Spider-Walk-cycleSpreadSheet_6
+    21300014: Spider-Walk-cycleSpreadSheet_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

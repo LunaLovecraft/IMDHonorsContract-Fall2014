@@ -1,6 +1,9 @@
 fileFormatVersion: 2
 guid: 2fd7b028edd00bd4d8d835f476c958fa
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Spider Idle_0
+    21300002: Spider Idle_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

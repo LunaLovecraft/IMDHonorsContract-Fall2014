@@ -5,15 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{28ECCF83-E364-3BE3-4714-FA313D7C19F8}</ProjectGuid>
+    <ProjectGuid>{6444A41A-F683-D0B6-0590-015A53066E3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace></RootNamespace>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,27 +49,43 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityVS.VersionSpecific">
+      <HintPath>Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:\Program Files (x86)\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\4.6.0\Editor\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files (x86)\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\4.6.0\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\CharacterVariable.cs" />
-    <Compile Include="Assets\Scripts\FluffScript.cs" />
-    <Compile Include="Assets\Scripts\Parallax.cs" />
-    <Compile Include="Assets\Scripts\PathHandler.cs" />
-    <Compile Include="Assets\Scripts\SimpleIK.cs" />
-    <Compile Include="Assets\Scripts\Trampoline.cs" />
-    <Compile Include="Assets\Scripts\TriggerZone Scripts\AbstractTriggerZone.cs" />
-    <Compile Include="Assets\Scripts\TriggerZone Scripts\ExampleTriggerZoneScript.cs" />
-    <Compile Include="Assets\Scripts\TriggerZone Scripts\SeeThroughSprites.cs" />
-    <Compile Include="Assets\Scripts\TriggerZone Scripts\SpikeScript.cs" />
-    <Compile Include="Assets\Scripts\TriggerZone Scripts\WindScript.cs" />
-    <Compile Include="Assets\Scripts\WebGun.cs" />
-    <Compile Include="Assets\Scripts\WebNode.cs" />
-    <Compile Include="Assets\Scripts\movement.cs" />
-    <Compile Include="Assets\Scripts\wallCollide.cs" />
-    <Compile Include="Assets\StartScript.cs" />
+    <ProjectReference Include="UnityVS.SpiderWeb.CSharp.csproj">
+      <Project>{28ECCF83-E364-3BE3-4714-FA313D7C19F8}</Project>
+      <Name>UnityVS.SpiderWeb.CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Editor\IKEditor.cs" />
     <None Include="Assets\Materials\Shaders\TilingTexture_NoLight.shader" />
     <None Include="Assets\Materials\Shaders\TilingTexture_SurfaceLit.shader" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />
+    <None Include="Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll" />
+    <None Include="C:\Program Files (x86)\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\4.6.0\Editor\UnityEditor.UI.dll" />
+    <None Include="C:\Program Files (x86)\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\4.6.0\UnityEngine.UI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

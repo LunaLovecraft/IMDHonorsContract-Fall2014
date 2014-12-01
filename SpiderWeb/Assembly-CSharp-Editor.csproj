@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5087AB84-0D8D-7DA3-9455-801C11DCE081}</ProjectGuid>
+	<ProjectGuid>{4172423B-902D-5E27-E109-166AAA8B419C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,28 +46,31 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CharacterVariable.cs" />
-     <Compile Include="Assets\Scripts\FluffScript.cs" />
-     <Compile Include="Assets\Scripts\Parallax.cs" />
-     <Compile Include="Assets\Scripts\PathHandler.cs" />
-     <Compile Include="Assets\Scripts\SimpleIK.cs" />
-     <Compile Include="Assets\Scripts\Trampoline.cs" />
-     <Compile Include="Assets\Scripts\TriggerZone Scripts\AbstractTriggerZone.cs" />
-     <Compile Include="Assets\Scripts\TriggerZone Scripts\ExampleTriggerZoneScript.cs" />
-     <Compile Include="Assets\Scripts\TriggerZone Scripts\SeeThroughSprites.cs" />
-     <Compile Include="Assets\Scripts\TriggerZone Scripts\SpikeScript.cs" />
-     <Compile Include="Assets\Scripts\TriggerZone Scripts\WindScript.cs" />
-     <Compile Include="Assets\Scripts\WebGun.cs" />
-     <Compile Include="Assets\Scripts\WebNode.cs" />
-     <Compile Include="Assets\Scripts\movement.cs" />
-     <Compile Include="Assets\Scripts\wallCollide.cs" />
-     <Compile Include="Assets\StartScript.cs" />
+     <Compile Include="Assets\Editor\IKEditor.cs" />
      <None Include="Assets\Materials\Shaders\TilingTexture_SurfaceLit.shader" />
      <None Include="Assets\Materials\Shaders\TilingTexture_NoLight.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+ <HintPath>C:/Users/LttlGreenSprout/Documents/IMDHonorsContract-Fall2014/SpiderWeb/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+ <HintPath>C:/Users/LttlGreenSprout/Documents/IMDHonorsContract-Fall2014/SpiderWeb/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityVS.VersionSpecific">
+ <HintPath>C:/Users/LttlGreenSprout/Documents/IMDHonorsContract-Fall2014/SpiderWeb/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{5087AB84-0D8D-7DA3-9455-801C11DCE081}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
