@@ -11,7 +11,7 @@ public class SpikeScript : AbstractTriggerZone {
     {
         if(other.gameObject == GameObject.Find("Player"))
         {
-            //Kill code here.
+            other.GetComponent<Death>().Die();
             //other.GetComponent<PlayerScript>.Reset();
         }
     }
