@@ -25,13 +25,28 @@ public class movement : MonoBehaviour {
 		{
 			//transform.position = (rigidbody2D.position - maxSpeed);
 			transform.eulerAngles = new Vector2(0, 180);
+            var t = transform.localScale;
+            //transform.localScale = new Vector3(-Mathf.Abs(t.x), t.y, t.z);
 			transform.Translate(Vector2.right * maxSpeed.x);
+
+            foreach (var v in gameObject.GetComponentsInChildren<SimpleIK>())
+            {
+                v.SetFacingRight(false);
+            }
+            //gameObject.GetComponent<SimpleIK>().SetFacingRight(false);
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
 			//transform.position = (rigidbody2D.position + maxSpeed);
+            var t = transform.localScale;
+            //transform.localScale = new Vector3(Mathf.Abs(t.x), t.y, t.z);
 			transform.eulerAngles = new Vector2(0, 0);
 			transform.Translate(Vector2.right * maxSpeed.x);
+            foreach (var v in gameObject.GetComponentsInChildren<SimpleIK>())
+            {
+                v.SetFacingRight(true);
+            }
+            //gameObject.GetComponent<SimpleIK>().SetFacingRight(true);
 		}
 		//if (Input.GetKey(KeyCode.UpArrow))
 		//{
