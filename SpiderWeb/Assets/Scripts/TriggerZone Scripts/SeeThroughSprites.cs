@@ -7,6 +7,7 @@ public class SeeThroughSprites : AbstractTriggerZone {
 
 	//The sprite thay will disappear when the player enters its zone
 	public SpriteRenderer Overlay;
+	public SpriteRenderer Crack;
 
 	bool isIn = false;
 
@@ -17,7 +18,12 @@ public class SeeThroughSprites : AbstractTriggerZone {
 			isIn = true;
 			Overlay.material.color = new Color (Overlay.material.color.r, Overlay.material.color.g, Overlay.material.color.b, Mathf.Lerp (Overlay.material.color.a, 0, Time.deltaTime * 2));
 			//Overlay.enabled = false;
+
+			if(Crack != null)
+				Crack.material.color = new Color (Crack.material.color.r, Crack.material.color.g, Crack.material.color.b, Mathf.Lerp (Crack.material.color.a, 0, Time.deltaTime * 2));
+
 		}
+
 	}
 
 	public override void OnTriggerExit2D(Collider2D other)
@@ -36,8 +42,13 @@ public class SeeThroughSprites : AbstractTriggerZone {
 
 	public void Update()
 	{
-		if(!isIn)
-			Overlay.material.color = new Color(Overlay.material.color.r, Overlay.material.color.g, Overlay.material.color.b, Mathf.Lerp(Overlay.material.color.a, 1, Time.deltaTime * 2));
+		if (!isIn)
+		{
+			Overlay.material.color = new Color (Overlay.material.color.r, Overlay.material.color.g, Overlay.material.color.b, Mathf.Lerp (Overlay.material.color.a, 1, Time.deltaTime * 2));
 
+			if(Crack != null)
+				Crack.material.color = new Color (Crack.material.color.r, Crack.material.color.g, Crack.material.color.b, Mathf.Lerp (Crack.material.color.a, 1, Time.deltaTime * 2));
+
+		}
 	}
 }
