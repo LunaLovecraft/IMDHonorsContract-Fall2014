@@ -12,15 +12,21 @@ public class SeeThroughSprites : AbstractTriggerZone {
 
 	public override void OnTriggerStay2D (Collider2D other)
 	{
-		isIn= true;
-		Overlay.material.color = new Color(Overlay.material.color.r, Overlay.material.color.g, Overlay.material.color.b, Mathf.Lerp(Overlay.material.color.a, 0, Time.deltaTime * 2));
-		//Overlay.enabled = false;
+		if (other.gameObject == GameObject.Find ("Player")) 
+		{
+			isIn = true;
+			Overlay.material.color = new Color (Overlay.material.color.r, Overlay.material.color.g, Overlay.material.color.b, Mathf.Lerp (Overlay.material.color.a, 0, Time.deltaTime * 2));
+			//Overlay.enabled = false;
+		}
 	}
 
 	public override void OnTriggerExit2D(Collider2D other)
 	{
-		//Overlay.enabled = true;
-		isIn = false;
+		if (other.gameObject == GameObject.Find ("Player")) 
+		{
+			//Overlay.enabled = true;
+			isIn = false;
+		}
 	}
 
 	public override void OnTriggerEnter2D(Collider2D other)
