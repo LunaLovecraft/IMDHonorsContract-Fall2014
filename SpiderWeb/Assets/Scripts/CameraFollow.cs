@@ -31,13 +31,13 @@ public class CameraFollow : MonoBehaviour {
 		transform.position = new Vector3 (toFollow.position.x + shiftIndex, toFollow.position.y, transform.position.z);
 
 		//This code is for zooming the camera
-		if(Input.GetAxis ("Mouse ScrollWheel") < 0f && //If the user scrolls down
+		if((Input.GetAxis ("Mouse ScrollWheel")  < 0f || Input.GetKey(KeyCode.PageDown))&& //If the user scrolls down
 		   this.GetComponent<Camera>().orthographicSize < 15f) //And the camera isn't zoomed too far out already
 		{
 			this.GetComponent<Camera>().orthographicSize += 0.5f; //Zoom out
 		}
 
-		if (Input.GetAxis ("Mouse ScrollWheel") > 0f && //If the user scrolls up
+        if ((Input.GetAxis("Mouse ScrollWheel") > 0f|| Input.GetKey(KeyCode.PageUp)) && //If the user scrolls up
 		    this.GetComponent<Camera>().orthographicSize > 6.5) //And the camera isn't zoomed in too far already
 		{
 			this.GetComponent<Camera>().orthographicSize -= 0.5f; //Zoom in

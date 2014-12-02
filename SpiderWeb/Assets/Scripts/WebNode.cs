@@ -66,31 +66,31 @@ public class WebNode : MonoBehaviour {
             // We'll use linecasting.
             RaycastHit2D myData = Physics2D.Linecast(this.transform.position, nextNode.transform.position, layerMask);
 
-            if (myData.collider != null && !myData.collider.isTrigger && myData.distance > 0.01f && ((Vector2)nextNode.transform.position - myData.point).magnitude > 0.01f)
-            {
-                Vector2 location = myData.point;
+            //if (myData.collider != null && !myData.collider.isTrigger && myData.distance > 0.01f && ((Vector2)nextNode.transform.position - myData.point).magnitude > 0.01f)
+            //{
+            //    Vector2 location = myData.point;
                 
-                currentNode = Instantiate(webPoint, location, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
-                FindObjectOfType<WebGun>().numNodes++;
-                Debug.Log(currentNode);
-                currentNode.GetComponent<WebNode>().nextNode = this.nextNode;
-                currentNode.GetComponent<WebNode>().prevNode = this;
-                nextNode.prevNode = currentNode.GetComponent<WebNode>();
+            //    currentNode = Instantiate(webPoint, location, new Quaternion(0, 0, 0, 0)) as Rigidbody2D;
+            //    FindObjectOfType<WebGun>().numNodes++;
+            //    Debug.Log(currentNode);
+            //    currentNode.GetComponent<WebNode>().nextNode = this.nextNode;
+            //    currentNode.GetComponent<WebNode>().prevNode = this;
+            //    nextNode.prevNode = currentNode.GetComponent<WebNode>();
 
-                nextNode.GetComponent<SpringJoint2D>().connectedBody = currentNode.rigidbody2D;
-                nextNode.GetComponent<SpringJoint2D>().distance *= (1 - myData.fraction);
-                this.nextNode = currentNode.GetComponent<WebNode>();
+            //    nextNode.GetComponent<SpringJoint2D>().connectedBody = currentNode.rigidbody2D;
+            //    nextNode.GetComponent<SpringJoint2D>().distance *= (1 - myData.fraction);
+            //    this.nextNode = currentNode.GetComponent<WebNode>();
 
-                this.GetComponent<SpringJoint2D>().connectedBody = currentNode.rigidbody2D;
-                this.GetComponent<SpringJoint2D>().distance *= (myData.fraction);
+            //    this.GetComponent<SpringJoint2D>().connectedBody = currentNode.rigidbody2D;
+            //    this.GetComponent<SpringJoint2D>().distance *= (myData.fraction);
 
-                currentNode.GetComponent<WebNode>().Activate();
+            //    currentNode.GetComponent<WebNode>().Activate();
 
-                if (!myData.collider.CompareTag("Non-Stick"))
-                {
-                    currentNode.GetComponent<WebNode>().Attach();
-                }
-            }
+            //    if (!myData.collider.CompareTag("Non-Stick"))
+            //    {
+            //        currentNode.GetComponent<WebNode>().Attach();
+            //    }
+            //}
         }
     }
 
