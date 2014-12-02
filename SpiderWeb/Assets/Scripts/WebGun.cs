@@ -153,7 +153,7 @@ public class WebGun : MonoBehaviour
                 }
 
                 // On space pull in the web
-                if (prevNode.GetComponent<WebNode>().nextNode != null && Input.GetKey(KeyCode.W))
+                if (prevNode.GetComponent<WebNode>().nextNode != null && Input.GetKey(KeyCode.W) && prevNode.GetComponent<WebNode>().CheckIfStuck())
                 {
                     // Get the direction towards the webgun from the next point.
                     Vector2 tensionForceDirection = (prevNode.rigidbody2D.position - prevNode.GetComponent<WebNode>().nextNode.rigidbody2D.position).normalized;

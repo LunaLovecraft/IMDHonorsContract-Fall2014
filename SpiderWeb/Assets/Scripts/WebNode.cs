@@ -28,6 +28,8 @@ public class WebNode : MonoBehaviour {
 
     Rigidbody2D currentNode;
 
+    public bool stuck;
+
 	// Use this for initialization
 	void Start () {
 
@@ -154,7 +156,21 @@ public class WebNode : MonoBehaviour {
     public void Attach()
     {
         this.GetComponent<Rigidbody2D>().isKinematic = true;
+        stuck = true;
     }
 
+    public bool CheckIfStuck()
+    {
+        if (stuck)
+        {
+            return true;
+        }
+        if (nextNode == null)
+        {
+            return false;
+        }
+        
+        return nextNode.CheckIfStuck();
+    }
 
 }
