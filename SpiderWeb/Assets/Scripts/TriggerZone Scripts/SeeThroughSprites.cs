@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Adam Kaufman
+using UnityEngine;
 using System.Collections;
 
 //Allows for a sprite to fade in/out depending on whether or 
