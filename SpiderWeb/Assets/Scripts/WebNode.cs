@@ -1,6 +1,11 @@
 ﻿    using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// The individual node used to make up the webbing.
+/// Non-graphics related code written by Luna Meier.
+/// </summary>
 public class WebNode : MonoBehaviour {
 
     /// <summary>

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// The device that fires the webbing.
+/// Non-graphics related code written by Luna Meier.
+/// </summary>
 public class WebGun : MonoBehaviour
 {
     // Node Handlers
